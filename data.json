@@ -1,0 +1,27 @@
+{
+    "colleagues": [
+        {
+            "name": "Alice",
+            "role": 30,
+            "title": 30,
+            "meshTerms": [
+                "dsad",
+                "dsada"
+            ],
+            "cardTags": [
+                "dsadsa",
+                "dsadsd"
+            ],
+            "list": 30,
+            "img": 30,
+            "institute": 30,
+            "subSpecialism": 30,
+            "location": 30,
+            "time": 30,
+            "organizer": 30,
+            "attendees": 30,
+            "quote": 30,
+            "experience": 30
+        }
+    ]
+}
