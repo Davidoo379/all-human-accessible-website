@@ -1,0 +1,9 @@
+:root {}
+
+picture {
+    display: contents;
+
+    img {
+        width: 100%;
+    }
+}
