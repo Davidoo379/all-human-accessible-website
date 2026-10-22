@@ -397,10 +397,14 @@ body {
                 div {
                     grid-column: 1/2;
                     grid-row: 1/2;
-                    transition: 0.2s;
+
+                    @media (prefers-reduced-motion: no-preference) {
+                        transition: 0.7s cubic-bezier(0.14, 1.172, 0.844, 1.109);
+                    }
 
                     &.is-turned-away {
                         transform: rotateY(180deg);
+                        filter: opacity(0%);
                     }
 
                     &.card-front {
