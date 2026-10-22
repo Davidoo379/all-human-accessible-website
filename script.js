@@ -13,3 +13,16 @@ function openMenu() {
 function closeMenu() {
     navMenu.classList.remove("openNavMenu");
 }
+
+// * CARD FLIPPER
+const cardFront = document.querySelector("body main>section article>div.card-front");
+const cardBack = document.querySelector("body main>section article>div.card-back");
+const cardButton = document.querySelector("body main>section article>button");
+
+cardButton.addEventListener("click", flipCard);
+
+function flipCard() {
+    cardFront.classList.toggle("is-turned-away");
+    cardBack.classList.toggle("is-turned-away");
+}
+
