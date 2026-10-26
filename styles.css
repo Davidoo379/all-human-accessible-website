@@ -142,6 +142,33 @@
 
     /* others */
     --white: #FFFFFF;
+
+    /* color-scheme set */
+    color-scheme: light dark;
+
+    --COLOR-BACKGROUND: light-dark(var(--base-bleached-silk), var(--base-eclipse));
+    --COLOR-BACKGROUND-GRADIENT: light-dark(var(--l100-bleached-silk), var(--l100-night-rider));
+    --COLOR-NAV-TEXT: light-dark(var(--d600-bleached-silk), var(--d300-bleached-silk));
+    --COLOR-NAV-TEXT-HOVER: light-dark(var(--base-bleached-silk), var(--d300-eclipse));
+    --COLOR-HAMBURGER-ICON: light-dark(var(--base-night-rider), var(--base-bleached-silk));
+    --COLOR-H1: light-dark(var(--base-night-rider), var(--base-bleached-silk));
+    --COLOR-MENU-BUTTON: light-dark(var(--white), var(--d100-eclipse));
+    --COLOR-MENU-CARD-BUTTON: light-dark(var(--l100-bleached-silk), var(--d100-eclipse));
+    --COLOR-MENU-BUTTON-ICON: light-dark(var(--d700-bleached-silk), var(--d200-bleached-silk));
+    --COLOR-MENU-BUTTON-ICON-ACTIVE: light-dark(var(--white), var(--base-night-rider));
+    --COLOR-MENU-BUTTON-SHADOW: light-dark(var(--d300-bleached-silk), var(--d500-eclipse));
+    --COLOR-CARD-BACKGROUND: light-dark(var(--white), var(--base-night-rider));
+    --COLOR-BOTTOM-BAR-BACKGROUND: light-dark(var(--white), var(--d100-eclipse));
+    --COLOR-BOTTOM-BAR-OUTLINE: light-dark(var(--base-bleached-silk), var(--base-eclipse));
+    --COLOR-BOTTOM-BAR-BUTTON-HIGHLIGHT: light-dark(var(--d900-night-rider), var(--white));
+    --COLOR-BOTTOM-BAR-BUTTON-ICON: light-dark(var(--d600-bleached-silk), var(--white));
+    --COLOR-BOTTOM-BAR-BUTTON-ICON-HIGHLIGHT: light-dark(var(--white), var(--d900-night-rider));
+    --COLOR-BOTTOM-BAR-ANCHOR: light-dark(var(--d600-bleached-silk), var(--d900-night-rider));
+    --COLOR-BOTTOM-BAR-ANCHOR-HIGHLIGHT: light-dark(var(--base-night-rider), var(--base-bleached-silk));
+    --COLOR-CARD-FRONT-BACKGROUND: light-dark(var(--l400-cockatoo), var(--d400-cockatoo));
+    --COLOR-CARD-FRONT-TEXT: light-dark(var(--d600-cockatoo), var(--l600-cockatoo));
+    --COLOR-CARD-FRONT-MESHTERMS-TEXT: light-dark(var(--white), var(--base-eclipse));
+    --COLOR-CARD-FRONT-MESHTERMS-BACKGROUND: light-dark(var(--d700-bleached-silk), var(--base-bleached-silk));
 }
 
 /* * STYLE RESET */
@@ -198,8 +225,8 @@ img {
 
 /* * SPECIFIC STYLING */
 body {
-    background-color: var(--base-bleached-silk);
-    background-image: linear-gradient(transparent, var(--l100-bleached-silk));
+    background-color: var(--COLOR-BACKGROUND);
+    background-image: linear-gradient(transparent, var(--COLOR-BACKGROUND-GRADIENT));
     height: 100vh;
 
     /* * HEADER STYLING */
@@ -228,10 +255,13 @@ body {
         >button {
             width: 44px;
             height: 44px;
+
+            svg path {
+                fill: var(--COLOR-HAMBURGER-ICON);
+            }
         }
 
         &>nav {
-            background-color: var(--base-bleached-silk);
             position: absolute;
             display: flex;
             flex-direction: column;
@@ -245,6 +275,13 @@ body {
             height: 430px;
             border-radius: 0px 0px 1rem 1rem;
             font-size: 20px;
+
+            button {
+                svg path {
+                    fill: var(--COLOR-NAV-TEXT);
+                }
+            }
+
             background-color: transparent;
             transition: 0.2s;
 
@@ -252,11 +289,11 @@ body {
                 display: flex;
                 height: 430px;
                 top: 0;
-                background-color: var(--base-bleached-silk);
+                background-color: var(--COLOR-BACKGROUND);
                 transition: 0.2s;
 
                 a {
-                    color: var(--d600-bleached-silk);
+                    color: var(--COLOR-NAV-TEXT);
                 }
             }
 
@@ -285,18 +322,18 @@ body {
 
                 &:hover,
                 &:focus-visible {
-                    color: var(--base-bleached-silk);
+                    color: var(--COLOR-NAV-TEXT-HOVER);
 
                     svg path {
-                        fill: var(--base-bleached-silk);
-                        stroke: var(--base-bleached-silk);
+                        fill: var(--COLOR-NAV-TEXT-HOVER);
+                        stroke: var(--COLOR-NAV-TEXT-HOVER);
                     }
                 }
             }
         }
 
         h1 {
-            color: var(--base-night-rider);
+            color: var(--COLOR-H1);
             font-size: 24px;
             font-weight: 500;
             font-style: Medium;
@@ -319,24 +356,24 @@ body {
 
             li {
                 button {
-                    background-color: var(--white);
+                    background-color: var(--COLOR-MENU-BUTTON);
                     padding-top: 4.62px;
                     width: 44px;
                     height: 44px;
                     border-radius: 8px;
-                    box-shadow: 0px 5px 0px var(--d300-bleached-silk);
+                    box-shadow: 0px 5px 0px var(--COLOR-MENU-BUTTON-SHADOW);
 
                     svg path {
                         stroke: transparent;
-                        fill: var(--d700-bleached-silk);
+                        fill: var(--COLOR-MENU-BUTTON-ICON);
                     }
 
                     &.active {
                         background-color: var(--base-lustful-wishes);
-                        box-shadow: 0px 0px 0px var(--d300-bleached-silk);
+                        box-shadow: 0px 0px 0px var(transparent);
 
                         svg path {
-                            stroke: var(--white);
+                            stroke: var(--COLOR-MENU-BUTTON-ICON-ACTIVE);
                             fill: transparent;
                         }
 
@@ -352,9 +389,8 @@ body {
 
                     button {
                         background-color: transparent;
-                        box-shadow: 0px 0px 0px var(--d300-bleached-silk);
+                        box-shadow: 0px 0px 0px transparent;
                     }
-
 
                 }
             }
@@ -382,11 +418,11 @@ body {
                 margin-top: 12px;
                 padding: 0rem;
                 border-radius: 12px;
-                background-color: var(--white);
+                background-color: var(--COLOR-CARD-BACKGROUND);
                 position: relative;
 
                 >button {
-                    background-color: rgba(255, 0, 0, 0);
+                    background-color: transparent;
                     z-index: 1;
                     grid-column: 1/2;
                     grid-row: 1/2;
@@ -414,7 +450,7 @@ body {
                         place-items: center;
                         backface-visibility: hidden;
                         border-radius: 12px 12px 0px 0px;
-                        background-color: var(--l400-cockatoo);
+                        background-color: var(--COLOR-CARD-FRONT-BACKGROUND);
                         position: relative;
 
 
@@ -430,6 +466,11 @@ body {
                                 left: 40.82px;
                                 bottom: 118.13px;
                             }
+
+                            path {
+                                fill: var(--COLOR-CARD-FRONT-TEXT);
+                                stroke: transparent;
+                            }
                         }
 
                         blockquote {
@@ -441,7 +482,7 @@ body {
                             letter-spacing: 0%;
                             text-align: center;
                             margin-top: 59px;
-                            color: var(--d600-cockatoo);
+                            color: var(--COLOR-CARD-FRONT-TEXT);
                         }
 
                         ul:nth-of-type(1) {
@@ -465,8 +506,8 @@ body {
                                 letter-spacing: 0%;
                                 padding-inline: 10px;
                                 padding-block: 12.5px;
-                                color: var(--white);
-                                background-color: var(--d700-bleached-silk);
+                                color: var(--COLOR-CARD-FRONT-MESHTERMS-TEXT);
+                                background-color: var(--COLOR-CARD-FRONT-MESHTERMS-BACKGROUND);
                             }
 
                         }
@@ -475,14 +516,29 @@ body {
                             display: flex;
                             gap: 16px;
                             font-weight: 400;
-                            color: var(--d800-cockatoo);
+                            color: var(--COLOR-CARD-FRONT-TEXT);
                             font-size: 14px;
                             margin-bottom: auto;
+
 
                             li {
                                 display: flex;
                                 align-items: center;
                                 gap: 3.5px;
+
+                                &:nth-of-type(1) svg {
+                                    path {
+                                        fill: transparent;
+                                        stroke: var(--COLOR-CARD-FRONT-TEXT);
+                                    }
+                                }
+
+                                &:nth-of-type(2) svg {
+                                    path {
+                                        fill: var(--COLOR-CARD-FRONT-TEXT);
+                                        stroke: transparent;
+                                    }
+                                }
                             }
                         }
                     }
@@ -537,9 +593,9 @@ body {
                         a {
                             grid-column: 1/2;
                             grid-row: 3/5;
-                            background-color: var(--l100-bleached-silk);
-                            color: var(--d700-bleached-silk);
-                            box-shadow: 0px 5px 0px var(--d300-bleached-silk);
+                            background-color: var(--COLOR-MENU-CARD-BUTTON);
+                            color: var(--COLOR-MENU-BUTTON-ICON);
+                            box-shadow: 0px 5px 0px var(--COLOR-MENU-BUTTON-SHADOW);
                             display: block;
                             padding-block: 12.5px;
                             padding-inline: 20px;
@@ -565,9 +621,14 @@ body {
                         button {
                             width: 44px;
                             height: 44px;
-                            background-color: var(--base-bleached-silk);
-                            box-shadow: 0px 5px 0px var(--d300-bleached-silk);
+                            background-color: var(--COLOR-MENU-CARD-BUTTON);
+                            box-shadow: 0px 5px 0px var(--COLOR-MENU-BUTTON-SHADOW);
                             border-radius: 8px;
+
+                            svg path {
+                                stroke: transparent;
+                                fill: var(--COLOR-MENU-BUTTON-ICON);
+                            }
                         }
                     }
 
@@ -584,8 +645,8 @@ body {
 
     /* * BOTTOM BAR STYLING */
     aside {
-        background-color: var(--white);
-        outline: 2px solid var(--base-bleached-silk);
+        background-color: var(--COLOR-BOTTOM-BAR-BACKGROUND);
+        outline: 2px solid var(--COLOR-BOTTOM-BAR-OUTLINE);
         position: fixed;
         bottom: 0px;
         height: 86px;
@@ -599,6 +660,7 @@ body {
             height: 100%;
             gap: 20px;
 
+
             button:nth-child(1) {
                 padding: 0;
                 height: 44px;
@@ -610,18 +672,27 @@ body {
                 border-radius: 5px;
                 background-color: transparent;
 
+                svg path {
+                    stroke: var(--COLOR-BOTTOM-BAR-BUTTON-ICON);
+                    fill: var(--COLOR-BOTTOM-BAR-BUTTON-ICON)
+                }
+
                 &:hover {
-                    background-color: var(--d900-night-rider);
+                    background-color: var(--COLOR-BOTTOM-BAR-BUTTON-HIGHLIGHT);
 
                     svg path {
-                        stroke: var(--white);
-                        fill: var(--white)
+                        stroke: var(--COLOR-BOTTOM-BAR-BUTTON-ICON-HIGHLIGHT);
+                        fill: var(--COLOR-BOTTOM-BAR-BUTTON-ICON-HIGHLIGHT)
                     }
                 }
             }
 
+            a:nth-of-type(2) svg path {
+                fill: transparent;
+            }
+
             a:nth-of-type(2):hover svg path {
-                stroke: var(--white);
+                stroke: var(--COLOR-BOTTOM-BAR-BUTTON-ICON-HIGHLIGHT);
                 fill: transparent;
             }
 
@@ -646,10 +717,10 @@ body {
                     height: 270px;
 
                     bottom: 86px;
-                    background-color: var(--white);
+                    background-color: var(--COLOR-BOTTOM-BAR-BACKGROUND);
 
                     a {
-                        color: var(--d600-bleached-silk);
+                        color: var(--COLOR-BOTTOM-BAR-ANCHOR);
                     }
 
                 }
@@ -666,7 +737,7 @@ body {
                     }
 
                     &:hover {
-                        background-color: var(--d900-night-rider);
+                        background-color: var(--COLOR-BOTTOM-BAR-ANCHOR-HIGHLIGHT);
 
                         svg path {
                             fill: transparent;
@@ -675,11 +746,11 @@ body {
 
                     &:hover,
                     &:focus-visible {
-                        color: var(--base-bleached-silk);
+                        color: var(--COLOR-BOTTOM-BAR-BUTTON-HIGHLIGHT);
 
                         svg path {
-                            fill: var(--base-bleached-silk);
-                            stroke: var(--base-bleached-silk);
+                            fill: var(--COLOR-BOTTOM-BAR-BUTTON-HIGHLIGHT);
+                            stroke: var(--COLOR-BOTTOM-BAR-BUTTON-HIGHLIGHT);
                         }
                     }
                 }
