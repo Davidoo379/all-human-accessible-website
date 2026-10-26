@@ -153,22 +153,24 @@
     --COLOR-HAMBURGER-ICON: light-dark(var(--base-night-rider), var(--base-bleached-silk));
     --COLOR-H1: light-dark(var(--base-night-rider), var(--base-bleached-silk));
     --COLOR-MENU-BUTTON: light-dark(var(--white), var(--d100-eclipse));
-    --COLOR-MENU-CARD-BUTTON: light-dark(var(--l100-bleached-silk), var(--d100-eclipse));
-    --COLOR-MENU-BUTTON-ICON: light-dark(var(--d700-bleached-silk), var(--d200-bleached-silk));
+    --COLOR-MENU-CARD-BUTTON: light-dark(var(--l100-bleached-silk), var(--l100-eclipse));
+    --COLOR-MENU-BUTTON-ICON: light-dark(var(--d900-bleached-silk), var(--d200-bleached-silk));
     --COLOR-MENU-BUTTON-ICON-ACTIVE: light-dark(var(--white), var(--base-night-rider));
     --COLOR-MENU-BUTTON-SHADOW: light-dark(var(--d300-bleached-silk), var(--d500-eclipse));
     --COLOR-CARD-BACKGROUND: light-dark(var(--white), var(--base-night-rider));
     --COLOR-BOTTOM-BAR-BACKGROUND: light-dark(var(--white), var(--d100-eclipse));
     --COLOR-BOTTOM-BAR-OUTLINE: light-dark(var(--base-bleached-silk), var(--base-eclipse));
-    --COLOR-BOTTOM-BAR-BUTTON-HIGHLIGHT: light-dark(var(--d900-night-rider), var(--white));
+    --COLOR-BOTTOM-BAR-BUTTON-HIGHLIGHT: light-dark(var(--d700-night-rider), var(--white));
     --COLOR-BOTTOM-BAR-BUTTON-ICON: light-dark(var(--d600-bleached-silk), var(--white));
     --COLOR-BOTTOM-BAR-BUTTON-ICON-HIGHLIGHT: light-dark(var(--white), var(--d900-night-rider));
-    --COLOR-BOTTOM-BAR-ANCHOR: light-dark(var(--d600-bleached-silk), var(--d900-night-rider));
-    --COLOR-BOTTOM-BAR-ANCHOR-HIGHLIGHT: light-dark(var(--base-night-rider), var(--base-bleached-silk));
+    --COLOR-BOTTOM-BAR-ANCHOR: light-dark(var(--d600-bleached-silk), var(--base-bleached-silk));
+    --COLOR-BOTTOM-BAR-ANCHOR-HIGHLIGHT: light-dark(var(--base-eclipse), var(--white));
+    --COLOR-BOTTOM-BAR-ANCHOR-TEXT-HIGHLIGHT: light-dark(var(--white), var(--base-eclipse));
     --COLOR-CARD-FRONT-BACKGROUND: light-dark(var(--l400-cockatoo), var(--d400-cockatoo));
     --COLOR-CARD-FRONT-TEXT: light-dark(var(--d600-cockatoo), var(--l600-cockatoo));
     --COLOR-CARD-FRONT-MESHTERMS-TEXT: light-dark(var(--white), var(--base-eclipse));
     --COLOR-CARD-FRONT-MESHTERMS-BACKGROUND: light-dark(var(--d700-bleached-silk), var(--base-bleached-silk));
+    --COLOR-MENU-BUTTON-ACTIVE: light-dark(var(--d200-lustful-wishes), var(--l300-lustful-wishes));
 }
 
 /* * STYLE RESET */
@@ -268,17 +270,17 @@ body {
             align-items: end;
             overflow-y: clip;
             padding: 1rem;
-            top: -500%;
+            top: -700%;
             left: 0;
             gap: 2rem;
             width: 100%;
-            height: 430px;
+            height: 330px;
             border-radius: 0px 0px 1rem 1rem;
             font-size: 20px;
 
             button {
                 svg path {
-                    fill: var(--COLOR-NAV-TEXT);
+                    stroke: var(--COLOR-NAV-TEXT);
                 }
             }
 
@@ -287,7 +289,6 @@ body {
 
             &.openNavMenu {
                 display: flex;
-                height: 430px;
                 top: 0;
                 background-color: var(--COLOR-BACKGROUND);
                 transition: 0.2s;
@@ -304,12 +305,18 @@ body {
                 padding-left: 0.5rem;
                 color: transparent;
 
-                &:nth-of-type(1):hover {
-                    background-color: var(--base-cockatoo);
 
+
+                &:nth-of-type(1) {
                     svg path {
+                        stroke: var(--COLOR-NAV-TEXT);
                         fill: transparent;
                     }
+                }
+
+                svg path {
+                    fill: var(--COLOR-NAV-TEXT);
+                    stroke: transparent;
                 }
 
                 &:nth-of-type(2):hover {
@@ -326,6 +333,16 @@ body {
 
                     svg path {
                         fill: var(--COLOR-NAV-TEXT-HOVER);
+                        stroke: transparent;
+                    }
+                }
+
+                &:nth-of-type(1):hover,
+                &:nth-of-type(1):focus-visible {
+                    background-color: var(--base-cockatoo);
+
+                    svg path {
+                        fill: transparent;
                         stroke: var(--COLOR-NAV-TEXT-HOVER);
                     }
                 }
@@ -369,7 +386,7 @@ body {
                     }
 
                     &.active {
-                        background-color: var(--base-lustful-wishes);
+                        background-color: var(--COLOR-MENU-BUTTON-ACTIVE);
                         box-shadow: 0px 0px 0px var(transparent);
 
                         svg path {
@@ -687,18 +704,23 @@ body {
                 }
             }
 
-            a:nth-of-type(2) svg path {
+            button {
+                svg path {
+                    stroke: transparent;
+                    fill: var(--COLOR-BOTTOM-BAR-BUTTON-ICON)
+                }
+            }
+
+            >a:nth-of-type(2) svg path {
                 fill: transparent;
             }
 
-            a:nth-of-type(2):hover svg path {
+            >a:nth-of-type(2):hover svg path {
                 stroke: var(--COLOR-BOTTOM-BAR-BUTTON-ICON-HIGHLIGHT);
-                fill: transparent;
             }
 
             div {
-                background-color: transparent;
-                bottom: -100%;
+                bottom: -200%;
                 transition: 0.2s ease;
                 position: fixed;
                 display: flex;
@@ -709,48 +731,70 @@ body {
                 white-space: nowrap;
                 gap: 1rem;
                 width: 100%;
-                height: 80px;
+                height: 270px;
                 border-radius: 1rem 1rem 0rem 0rem;
                 font-size: 20px;
+                background-color: var(--COLOR-BOTTOM-BAR-BACKGROUND);
 
                 &.openProfileMenu {
-                    height: 270px;
-
                     bottom: 86px;
-                    background-color: var(--COLOR-BOTTOM-BAR-BACKGROUND);
+                }
 
-                    a {
-                        color: var(--COLOR-BOTTOM-BAR-ANCHOR);
+                >button {
+                    &:hover {
+                        background-color: var(--COLOR-BOTTOM-BAR-ANCHOR-HIGHLIGHT);
+
+                        svg path {
+                            stroke: var(--COLOR-BOTTOM-BAR-ANCHOR-TEXT-HIGHLIGHT);
+                        }
                     }
 
+                    svg path {
+                        stroke: var(--COLOR-BOTTOM-BAR-ANCHOR);
+                    }
                 }
 
                 a {
+                    color: var(--COLOR-BOTTOM-BAR-ANCHOR);
                     display: flex;
                     align-items: center;
                     border-radius: 8px;
                     padding-left: 0.5rem;
-                    color: transparent;
 
                     svg {
                         margin-right: 1rem;
                     }
 
-                    &:hover {
-                        background-color: var(--COLOR-BOTTOM-BAR-ANCHOR-HIGHLIGHT);
-
+                    &:nth-of-type(1),
+                    &:nth-of-type(3) {
                         svg path {
-                            fill: transparent;
+                            stroke: transparent;
                         }
+
+                        &:hover,
+                        &:focus-visible {
+                            svg path {
+                                stroke: transparent;
+                            }
+                        }
+                    }
+
+                    &:nth-of-type(2) {
+                        svg path {
+                            fill: var(--COLOR-BOTTOM-BAR-ANCHOR);
+                            stroke: var(--COLOR-BOTTOM-BAR-ANCHOR);
+                        }
+
                     }
 
                     &:hover,
                     &:focus-visible {
-                        color: var(--COLOR-BOTTOM-BAR-BUTTON-HIGHLIGHT);
+                        background-color: var(--COLOR-BOTTOM-BAR-ANCHOR-HIGHLIGHT);
+                        color: var(--COLOR-BOTTOM-BAR-ANCHOR-TEXT-HIGHLIGHT);
 
                         svg path {
-                            fill: var(--COLOR-BOTTOM-BAR-BUTTON-HIGHLIGHT);
-                            stroke: var(--COLOR-BOTTOM-BAR-BUTTON-HIGHLIGHT);
+                            fill: var(--COLOR-BOTTOM-BAR-ANCHOR-TEXT-HIGHLIGHT);
+                            stroke: var(--COLOR-BOTTOM-BAR-ANCHOR-TEXT-HIGHLIGHT);
                         }
                     }
                 }
