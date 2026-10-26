@@ -13,21 +13,6 @@ function openMenu() {
 function closeMenu() {
     navMenu.classList.remove("openNavMenu");
 }
-// * ASIDE MENU POPOUT
-const profileButton = document.querySelector("body>aside>nav>button");
-const profileCloseButton = document.querySelector("body>aside>nav>div>button");
-const profileMenu = document.querySelector("body>aside>nav>div");
-
-profileButton.addEventListener("click", openMenu);
-profileCloseButton.addEventListener("click", closeMenu);
-
-function openMenu() {
-    profileMenu.classList.add("openProfileMenu");
-}
-
-function closeMenu() {
-    profileMenu.classList.remove("openProfileMenu");
-}
 
 // * CARD FLIPPER
 const cardFront = document.querySelector("body main>section article>div.card-front");
