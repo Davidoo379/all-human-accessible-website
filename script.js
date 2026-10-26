@@ -63,5 +63,26 @@ function turnRight() {
     }
 }
 
-setCardOrder(); // set the initial state on load
+setCardOrder();
+
+// * CHANGE VIEW MODE
+const listViewButton = document.querySelector("body>main>menu>li:nth-of-type(1)>button");
+const cardViewButton = document.querySelector("body>main>menu>li:nth-of-type(2)>button");
+const main = document.querySelector("body>main");
+
+listViewButton.addEventListener("click", setListView);
+cardViewButton.addEventListener("click", setCardView);
+
+function setListView() {
+    main.classList.add("list-view");
+    listViewButton.classList.add("active");
+    cardViewButton.classList.remove("active");
+}
+function setCardView() {
+    main.classList.remove("list-view");
+    listViewButton.classList.remove("active");
+    cardViewButton.classList.add("active");
+}
+
+setCardView();
 

@@ -240,6 +240,7 @@ body {
 
     /* * HEADER STYLING */
     &>header {
+        background-color: var(--COLOR-BACKGROUND);
         position: sticky;
         top: 0;
         display: flex;
@@ -444,19 +445,39 @@ body {
 
                     &.active {
                         background-color: var(--COLOR-MENU-BUTTON-ACTIVE);
-                        box-shadow: 0px 0px 0px var(transparent);
+                        box-shadow: 0px 0px 0px transparent;
+                    }
+                }
 
+                &:nth-child(1) {
+                    button svg path {
+                        stroke: transparent;
+                        fill: var(--COLOR-MENU-BUTTON-ICON)
+                    }
+
+                    button.active {
                         svg path {
-                            stroke: var(--COLOR-MENU-BUTTON-ICON-ACTIVE);
-                            fill: transparent;
+                            stroke: transparent;
+                            fill: var(--COLOR-MENU-BUTTON);
                         }
-
                     }
                 }
 
                 &:nth-child(2) {
                     margin-left: 17px;
                     margin-right: 6.5px;
+
+                    button svg path {
+                        fill: transparent;
+                        stroke: var(--COLOR-MENU-BUTTON-ICON)
+                    }
+
+                    button.active {
+                        svg path {
+                            fill: transparent;
+                            stroke: var(--COLOR-MENU-BUTTON);
+                        }
+                    }
                 }
 
                 &:nth-child(3) {
@@ -472,7 +493,7 @@ body {
         }
 
         /* * MATCHING VIEW STYLING */
-        &>section {
+        >section {
             display: grid;
             justify-content: center;
             padding-inline: 13px;
@@ -731,6 +752,100 @@ body {
                         button {
                             width: 64px;
                             height: 64px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.list-view {
+
+            >section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                article {
+                    height: 350px;
+                    transform: rotate(0deg);
+                    filter: opacity(1);
+
+                    >button {
+                        display: none;
+                    }
+
+                    menu {
+                        display: none;
+                    }
+
+                    &.left,
+                    &.right,
+                    &.middle {
+                        transform: rotate(0deg);
+                        filter: opacity(1);
+                    }
+
+                    dl {
+                        display: none;
+                    }
+
+                    div {
+                        &.card-front {
+                            display: grid;
+                            grid-template-columns: 100px 1fr;
+                            grid-template-rows: 100px 250px;
+                            background-color: transparent;
+
+                            blockquote {
+                                display: none;
+                            }
+
+                            >svg {
+                                display: none;
+                            }
+
+                            ul:nth-of-type(1) {
+                                grid-column: 2/3;
+                                grid-row: 2/3;
+                                align-items: start;
+                            }
+
+                            ul:nth-of-type(2) {
+                                grid-column: 2/3;
+                                grid-row: 2/3;
+                                flex-direction: column;
+                                align-items: start;
+                                justify-content: start;
+                                place-self: start;
+                                padding-left: 40px;
+                                scale: 1.2;
+                                /* TODO REMOVE SCALE HERE */
+                            }
+                        }
+
+                        &.card-back {
+                            grid-template-columns: 100px 1fr;
+                            grid-template-rows: 100px 250px;
+
+                            >a {
+                                display: none;
+                            }
+
+                            h3 {
+                                grid-column: 2/3;
+                                grid-row: 1/2;
+                            }
+
+                            img {
+                                grid-column: 1/2;
+                                grid-row: 1/3;
+                            }
+
+                        }
+
+                        &.is-turned-away {
+                            transform: rotateY(0deg);
+                            filter: opacity(100%);
                         }
                     }
                 }
