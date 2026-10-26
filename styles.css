@@ -473,7 +473,7 @@ body {
 
         /* * MATCHING VIEW STYLING */
         &>section {
-            display: flex;
+            display: grid;
             justify-content: center;
             padding-inline: 13px;
 
@@ -484,6 +484,8 @@ body {
             }
 
             article {
+                grid-column: 1/-1;
+                grid-row: 1/-1;
                 width: 376px;
                 height: 496px;
                 display: grid;
@@ -494,6 +496,25 @@ body {
                 border-radius: 12px;
                 background-color: var(--COLOR-CARD-BACKGROUND);
                 position: relative;
+                transition: 0.4s ease-in-out;
+                transform-origin: 50% 200%;
+                transform: rotate(180deg);
+                filter: opacity(0);
+
+                &.left {
+                    transform: rotate(-45deg);
+                    filter: opacity(0);
+                }
+
+                &.right {
+                    transform: rotate(45deg);
+                    filter: opacity(0);
+                }
+
+                &.middle {
+                    transform: rotate(0deg);
+                    filter: opacity(1);
+                }
 
                 >button {
                     background-color: transparent;
