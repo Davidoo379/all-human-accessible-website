@@ -31,6 +31,8 @@ Er is een boven bar en onder bar die bij de desktop verzie linkt komen te staan.
 ### Obstakels met accesibility
 Met lighthouse, A11Y checklist en de WCAG rightlijnen heb ik gechecked of deze pagina toegankelijk is.
 Er waren een paar dingen die van het design aangepast moesten worden.
+<img width="155" height="145" alt="image" src="https://github.com/user-attachments/assets/3f3c0393-e6ff-4828-b603-2c9ee5800a2d" />
+
 - Een paar kleuren voor contrast
 <img width="166" height="62" alt="image" src="https://github.com/user-attachments/assets/c1795e61-7aec-4b38-9459-4b43439c5013" />
 <img width="168" height="71" alt="image" src="https://github.com/user-attachments/assets/1613b290-0899-4214-a4c1-aea784b1b916" />
